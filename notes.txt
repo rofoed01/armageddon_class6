@@ -1,0 +1,27 @@
+show current build = terraform show -no-color > tfshow.txt 
+show proposed plan output = terraform plan -no-color > tfplan.txt
+
+this is a POC build, detailing how to differentiate between multiple AWS regions, build infrastructure in each region, and configure routing between them via Transit Gateways. 
+
+reference links:
+aws modules via terraform registry: https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest
+transit gateway repo: https://github.com/terraform-aws-modules/terraform-aws-transit-gateway/blob/master/examples/complete/main.tf
+sort out the module errors: https://github.com/hashicorp/terraform/issues/22785
+set up multiple providers: https://developer.hashicorp.com/terraform/language/providers/configuration 
+
+
+
+sample file structure
+.
+├── dev
+│   ├── main.tf
+│   └── providers.tf
+├── staging
+│   ├── main.tf
+│   └── providers.tf
+├── prod
+│   ├── main.tf
+│   └── providers.tf
+└── modules
+    └── fancyappmodule
+    └── otherfancymodule

@@ -1,0 +1,266 @@
+aws_vpc.seattle_vpc: Refreshing state... [id=vpc-00a3754463840a49f]
+aws_eip.seattle_eip: Refreshing state... [id=eipalloc-0141f544450ffb25f]
+aws_eip.virginia_eip: Refreshing state... [id=eipalloc-022491964f46ec519]
+aws_vpc.virginia_vpc: Refreshing state... [id=vpc-0b75ad28f90d41b29]
+aws_internet_gateway.virginia_igw: Refreshing state... [id=igw-0c00b4117cde9d894]
+aws_subnet.private-us-east-1a: Refreshing state... [id=subnet-0ab2de679d4434854]
+aws_subnet.private-us-east-1b: Refreshing state... [id=subnet-0bb348c6c9aebdfab]
+aws_subnet.public-us-east-1a: Refreshing state... [id=subnet-0febd5fc0179eb3a9]
+aws_subnet.private-us-east-1c: Refreshing state... [id=subnet-069d00ce0c5621588]
+aws_security_group.virginia_vpc-sg02-LB01: Refreshing state... [id=sg-00b876447a0666fc3]
+aws_security_group.virginia_vpc-sg01-servers: Refreshing state... [id=sg-0b41ded5f78c91f7b]
+aws_route_table.virginia_rtb_public: Refreshing state... [id=rtb-0576f40c4745b2988]
+aws_route_table_association.public-us-east-1a: Refreshing state... [id=rtbassoc-0b3e0441bf5a65387]
+aws_nat_gateway.virginia_nat: Refreshing state... [id=nat-0b018d75c10041e2f]
+aws_internet_gateway.seattle_igw: Refreshing state... [id=igw-002d9014691898520]
+aws_security_group.seattle_vpc-sg01-servers: Refreshing state... [id=sg-07470723d09df8e46]
+aws_subnet.public-us-west-2a: Refreshing state... [id=subnet-074dfe237b78c4b3a]
+aws_subnet.private-us-west-2a: Refreshing state... [id=subnet-069f765fee87378bb]
+aws_subnet.private-us-west-2c: Refreshing state... [id=subnet-0d51e85b4ab756773]
+aws_subnet.private-us-west-2b: Refreshing state... [id=subnet-055c120c5dd690cdd]
+aws_security_group.seattle_vpc-sg02-LB01: Refreshing state... [id=sg-03c712b593717bf05]
+aws_route_table.virginia_rtb_private: Refreshing state... [id=rtb-02f1d7bfa9a1364d9]
+aws_route_table_association.private-us-east-1c: Refreshing state... [id=rtbassoc-0fa2655c64875e3ba]
+aws_route_table_association.private-us-east-1a: Refreshing state... [id=rtbassoc-0d2095645f5688301]
+aws_route_table_association.private-us-east-1b: Refreshing state... [id=rtbassoc-0e236caf65cb893fd]
+aws_route_table.seattle_rtb_public: Refreshing state... [id=rtb-04acbbf6499e5b47a]
+aws_nat_gateway.seattle_nat: Refreshing state... [id=nat-035bcc5320638b395]
+aws_route_table_association.public-us-west-2a: Refreshing state... [id=rtbassoc-09ac7625fcf838e82]
+aws_route_table.seattle_rtb_private: Refreshing state... [id=rtb-09181b1d11b204c7c]
+aws_route_table_association.private-us-west-2c: Refreshing state... [id=rtbassoc-018506f1047029de1]
+aws_route_table_association.private-us-west-2b: Refreshing state... [id=rtbassoc-0092b0517da86e8f1]
+aws_route_table_association.private-us-west-2a: Refreshing state... [id=rtbassoc-07dd99957464d0f81]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_launch_template.seattle_LT_80 will be created
+  + resource "aws_launch_template" "seattle_LT_80" {
+      + arn                    = (known after apply)
+      + default_version        = (known after apply)
+      + id                     = (known after apply)
+      + image_id               = "ami-055e3d4f0bbeb5878"
+      + instance_type          = "t2.micro"
+      + latest_version         = (known after apply)
+      + name                   = (known after apply)
+      + name_prefix            = "seattle_LT_80"
+      + tags_all               = (known after apply)
+      + user_data              = "IyEvYmluL2Jhc2gKeXVtIHVwZGF0ZSAteQp5dW0gaW5zdGFsbCAteSBodHRwZApzeXN0ZW1jdGwgc3RhcnQgaHR0cGQKc3lzdGVtY3RsIGVuYWJsZSBodHRwZAoKIyBHZXQgdGhlIElNRFN2MiB0b2tlbgpUT0tFTj0kKGN1cmwgLVggUFVUICJodHRwOi8vMTY5LjI1NC4xNjkuMjU0L2xhdGVzdC9hcGkvdG9rZW4iIC1IICJYLWF3cy1lYzItbWV0YWRhdGEtdG9rZW4tdHRsLXNlY29uZHM6IDIxNjAwIikKCiMgQmFja2dyb3VuZCB0aGUgY3VybCByZXF1ZXN0cwpjdXJsIC1IICJYLWF3cy1lYzItbWV0YWRhdGEtdG9rZW46ICRUT0tFTiIgLXMgaHR0cDovLzE2OS4yNTQuMTY5LjI1NC9sYXRlc3QvbWV0YS1kYXRhL2xvY2FsLWlwdjQgJj4gL3RtcC9sb2NhbF9pcHY0ICYKY3VybCAtSCAiWC1hd3MtZWMyLW1ldGFkYXRhLXRva2VuOiAkVE9LRU4iIC1zIGh0dHA6Ly8xNjkuMjU0LjE2OS4yNTQvbGF0ZXN0L21ldGEtZGF0YS9wbGFjZW1lbnQvYXZhaWxhYmlsaXR5LXpvbmUgJj4gL3RtcC9heiAmCmN1cmwgLUggIlgtYXdzLWVjMi1tZXRhZGF0YS10b2tlbjogJFRPS0VOIiAtcyBodHRwOi8vMTY5LjI1NC4xNjkuMjU0L2xhdGVzdC9tZXRhLWRhdGEvbmV0d29yay9pbnRlcmZhY2VzL21hY3MvICY+IC90bXAvbWFjaWQgJgp3YWl0CgptYWNpZD0kKGNhdCAvdG1wL21hY2lkKQpsb2NhbF9pcHY0PSQoY2F0IC90bXAvbG9jYWxfaXB2NCkKYXo9JChjYXQgL3RtcC9heikKdnBjPSQoY3VybCAtSCAiWC1hd3MtZWMyLW1ldGFkYXRhLXRva2VuOiAkVE9LRU4iIC1zIGh0dHA6Ly8xNjkuMjU0LjE2OS4yNTQvbGF0ZXN0L21ldGEtZGF0YS9uZXR3b3JrL2ludGVyZmFjZXMvbWFjcy8kbWFjaWQvdnBjLWlkKQoKIyBDcmVhdGUgSFRNTCBmaWxlCmNhdCA8PC1IVE1MID4gL3Zhci93d3cvaHRtbC9pbmRleC5odG1sCjwhZG9jdHlwZSBodG1sPgo8aHRtbCBsYW5nPSJlbiIgY2xhc3M9ImgtMTAwIj4KPGhlYWQ+Cjx0aXRsZT5EZXRhaWxzIGZvciBTZWF0dGxlIHBvcnQgODAgYXBwPC90aXRsZT4KPC9oZWFkPgo8Ym9keT4KPGRpdj4KPGgxPlN0YXJidWNrcyBTYWdlczwvaDE+CjxoMT5TbGVlcGxlc3MgaW4gU2VhdHRsZTwvaDE+Cgo8cD48Yj5JbnN0YW5jZSBOYW1lOjwvYj4gJChob3N0bmFtZSAtZikgPC9wPgo8cD48Yj5JbnN0YW5jZSBQcml2YXRlIElwIEFkZHJlc3M6IDwvYj4gJGxvY2FsX2lwdjQ8L3A+CjxwPjxiPkF2YWlsYWJpbGl0eSBab25lOiA8L2I+ICRhejwvcD4KPHA+PGI+VmlydHVhbCBQcml2YXRlIENsb3VkIChWUEMpOjwvYj4gJHZwYzwvcD4KPC9kaXY+CjwvYm9keT4KPC9odG1sPgpIVE1MCgojIENsZWFuIHVwIHRoZSB0ZW1wIGZpbGVzCnJtIC1mIC90bXAvbG9jYWxfaXB2NCAvdG1wL2F6IC90bXAvbWFjaWQK"
+      + vpc_security_group_ids = [
+          + "sg-07470723d09df8e46",
+        ]
+
+      + tag_specifications {
+          + resource_type = "instance"
+          + tags          = {
+              + "Name"    = "seattle_LT"
+              + "Owner"   = "Chewbacca"
+              + "Planet"  = "Mustafar"
+              + "Service" = "application1"
+            }
+        }
+    }
+
+  # aws_launch_template.virginia_LT_80 will be created
+  + resource "aws_launch_template" "virginia_LT_80" {
+      + arn                    = (known after apply)
+      + default_version        = (known after apply)
+      + id                     = (known after apply)
+      + image_id               = "ami-0453ec754f44f9a4a"
+      + instance_type          = "t2.micro"
+      + latest_version         = (known after apply)
+      + name                   = (known after apply)
+      + name_prefix            = "virginia_LT_80"
+      + tags_all               = (known after apply)
+      + user_data              = "IyEvYmluL2Jhc2gKeXVtIHVwZGF0ZSAteQp5dW0gaW5zdGFsbCAteSBodHRwZApzeXN0ZW1jdGwgc3RhcnQgaHR0cGQKc3lzdGVtY3RsIGVuYWJsZSBodHRwZAoKIyBHZXQgdGhlIElNRFN2MiB0b2tlbgpUT0tFTj0kKGN1cmwgLVggUFVUICJodHRwOi8vMTY5LjI1NC4xNjkuMjU0L2xhdGVzdC9hcGkvdG9rZW4iIC1IICJYLWF3cy1lYzItbWV0YWRhdGEtdG9rZW4tdHRsLXNlY29uZHM6IDIxNjAwIikKCiMgQmFja2dyb3VuZCB0aGUgY3VybCByZXF1ZXN0cwpjdXJsIC1IICJYLWF3cy1lYzItbWV0YWRhdGEtdG9rZW46ICRUT0tFTiIgLXMgaHR0cDovLzE2OS4yNTQuMTY5LjI1NC9sYXRlc3QvbWV0YS1kYXRhL2xvY2FsLWlwdjQgJj4gL3RtcC9sb2NhbF9pcHY0ICYKY3VybCAtSCAiWC1hd3MtZWMyLW1ldGFkYXRhLXRva2VuOiAkVE9LRU4iIC1zIGh0dHA6Ly8xNjkuMjU0LjE2OS4yNTQvbGF0ZXN0L21ldGEtZGF0YS9wbGFjZW1lbnQvYXZhaWxhYmlsaXR5LXpvbmUgJj4gL3RtcC9heiAmCmN1cmwgLUggIlgtYXdzLWVjMi1tZXRhZGF0YS10b2tlbjogJFRPS0VOIiAtcyBodHRwOi8vMTY5LjI1NC4xNjkuMjU0L2xhdGVzdC9tZXRhLWRhdGEvbmV0d29yay9pbnRlcmZhY2VzL21hY3MvICY+IC90bXAvbWFjaWQgJgp3YWl0CgptYWNpZD0kKGNhdCAvdG1wL21hY2lkKQpsb2NhbF9pcHY0PSQoY2F0IC90bXAvbG9jYWxfaXB2NCkKYXo9JChjYXQgL3RtcC9heikKdnBjPSQoY3VybCAtSCAiWC1hd3MtZWMyLW1ldGFkYXRhLXRva2VuOiAkVE9LRU4iIC1zIGh0dHA6Ly8xNjkuMjU0LjE2OS4yNTQvbGF0ZXN0L21ldGEtZGF0YS9uZXR3b3JrL2ludGVyZmFjZXMvbWFjcy8kbWFjaWQvdnBjLWlkKQoKIyBDcmVhdGUgSFRNTCBmaWxlCmNhdCA8PC1IVE1MID4gL3Zhci93d3cvaHRtbC9pbmRleC5odG1sCjwhZG9jdHlwZSBodG1sPgo8aHRtbCBsYW5nPSJlbiIgY2xhc3M9ImgtMTAwIj4KPGhlYWQ+Cjx0aXRsZT5EZXRhaWxzIGZvciBWaXJnaW5pYSBwb3J0IDgwIGFwcDwvdGl0bGU+CjwvaGVhZD4KPGJvZHk+CjxkaXY+CjxoMT5WYWxpYW50IFZhbmd1YXJkczwvaDE+CjxoMT5WaWdpbGFudCBpbiBWaXJnaW5pYTwvaDE+Cgo8cD48Yj5JbnN0YW5jZSBOYW1lOjwvYj4gJChob3N0bmFtZSAtZikgPC9wPgo8cD48Yj5JbnN0YW5jZSBQcml2YXRlIElwIEFkZHJlc3M6IDwvYj4gJGxvY2FsX2lwdjQ8L3A+CjxwPjxiPkF2YWlsYWJpbGl0eSBab25lOiA8L2I+ICRhejwvcD4KPHA+PGI+VmlydHVhbCBQcml2YXRlIENsb3VkIChWUEMpOjwvYj4gJHZwYzwvcD4KPC9kaXY+CjwvYm9keT4KPC9odG1sPgpIVE1MCgojIENsZWFuIHVwIHRoZSB0ZW1wIGZpbGVzCnJtIC1mIC90bXAvbG9jYWxfaXB2NCAvdG1wL2F6IC90bXAvbWFjaWQK"
+      + vpc_security_group_ids = [
+          + "sg-0b41ded5f78c91f7b",
+        ]
+
+      + tag_specifications {
+          + resource_type = "instance"
+          + tags          = {
+              + "Name"    = "virginia_LT_80"
+              + "Owner"   = "Chewbacca"
+              + "Planet"  = "Mustafar"
+              + "Service" = "application1"
+            }
+        }
+    }
+
+  # aws_lb_target_group.seattle_vpc_tg_80 will be created
+  + resource "aws_lb_target_group" "seattle_vpc_tg_80" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = (known after apply)
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancer_arns                 = (known after apply)
+      + load_balancing_algorithm_type      = (known after apply)
+      + load_balancing_anomaly_mitigation  = (known after apply)
+      + load_balancing_cross_zone_enabled  = (known after apply)
+      + name                               = "seattle-vpc-tg-80"
+      + name_prefix                        = (known after apply)
+      + port                               = 80
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "HTTP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags                               = {
+          + "Name"    = "seattle_vpcTargetGroup_80"
+          + "Owner"   = "Chewbacca"
+          + "Project" = "seattle_vpc"
+          + "Service" = "seattle_vpc"
+        }
+      + tags_all                           = {
+          + "Name"    = "seattle_vpcTargetGroup_80"
+          + "Owner"   = "Chewbacca"
+          + "Project" = "seattle_vpc"
+          + "Service" = "seattle_vpc"
+        }
+      + target_type                        = "instance"
+      + vpc_id                             = "vpc-00a3754463840a49f"
+
+      + health_check {
+          + enabled             = true
+          + healthy_threshold   = 5
+          + interval            = 30
+          + matcher             = "200"
+          + path                = "/"
+          + port                = "traffic-port"
+          + protocol            = "HTTP"
+          + timeout             = 5
+          + unhealthy_threshold = 2
+        }
+    }
+
+  # aws_lb_target_group.virginia_vpc_tg_80 will be created
+  + resource "aws_lb_target_group" "virginia_vpc_tg_80" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = (known after apply)
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancer_arns                 = (known after apply)
+      + load_balancing_algorithm_type      = (known after apply)
+      + load_balancing_anomaly_mitigation  = (known after apply)
+      + load_balancing_cross_zone_enabled  = (known after apply)
+      + name                               = "virginia-vpc-tg-80"
+      + name_prefix                        = (known after apply)
+      + port                               = 80
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "HTTP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags                               = {
+          + "Name"    = "virginia_vpc_tg_80"
+          + "Owner"   = "Chewbacca"
+          + "Project" = "virginia_vpc"
+          + "Service" = "virginia_vpc"
+        }
+      + tags_all                           = {
+          + "Name"    = "virginia_vpc_tg_80"
+          + "Owner"   = "Chewbacca"
+          + "Project" = "virginia_vpc"
+          + "Service" = "virginia_vpc"
+        }
+      + target_type                        = "instance"
+      + vpc_id                             = "vpc-0b75ad28f90d41b29"
+
+      + health_check {
+          + enabled             = true
+          + healthy_threshold   = 5
+          + interval            = 30
+          + matcher             = "200"
+          + path                = "/"
+          + port                = "traffic-port"
+          + protocol            = "HTTP"
+          + timeout             = 5
+          + unhealthy_threshold = 2
+        }
+    }
+
+  # aws_security_group.seattle_vpc-sg01-servers will be updated in-place
+  ~ resource "aws_security_group" "seattle_vpc-sg01-servers" {
+        id                     = "sg-07470723d09df8e46"
+      ~ ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Syslog"
+              + from_port        = 514
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "udp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 514
+            },
+            # (1 unchanged element hidden)
+        ]
+        name                   = "seattle_vpc-sg01-servers"
+        tags                   = {
+            "Name"    = "seattle_vpc-sg01-servers"
+            "Owner"   = "Luke"
+            "Planet"  = "Musafar"
+            "Service" = "application1"
+        }
+        # (7 unchanged attributes hidden)
+    }
+
+  # aws_security_group.virginia_vpc-sg01-servers will be updated in-place
+  ~ resource "aws_security_group" "virginia_vpc-sg01-servers" {
+        id                     = "sg-0b41ded5f78c91f7b"
+      ~ ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Syslog"
+              + from_port        = 514
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "udp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 514
+            },
+            # (1 unchanged element hidden)
+        ]
+        name                   = "virginia_vpc-sg01-servers"
+        tags                   = {
+            "Name"    = "virginia_vpc-sg01-servers"
+            "Owner"   = "Luke"
+            "Planet"  = "Musafar"
+            "Service" = "application1"
+        }
+        # (7 unchanged attributes hidden)
+    }
+
+Plan: 4 to add, 2 to change, 0 to destroy.
+
+Warning: Argument is deprecated
+
+  with aws_eip.seattle_eip,
+  on 04-NAT.tf line 3, in resource "aws_eip" "seattle_eip":
+   3:   vpc = true
+
+use domain attribute instead
+
+(and 3 more similar warnings elsewhere)
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

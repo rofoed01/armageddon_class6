@@ -2,8 +2,8 @@ resource "aws_autoscaling_group" "seattle_vpc_asg_80" {
   provider              = aws.seattle
   name_prefix           = "seattle-vpc-auto-scaling-group-"
   min_size              = 1
-  max_size              = 4
-  desired_capacity      = 3
+  max_size              = 2
+  desired_capacity      = 1
   vpc_zone_identifier   = [
     aws_subnet.private-us-west-2a.id,
     aws_subnet.private-us-west-2b.id,
@@ -159,8 +159,8 @@ resource "aws_autoscaling_group" "virginia_vpc_asg_80" {
   provider              = aws.virginia
   name_prefix           = "virginia-vpc-auto-scaling-group-"
   min_size              = 1
-  max_size              = 4
-  desired_capacity      = 3
+  max_size              = 2
+  desired_capacity      = 1
   vpc_zone_identifier   = [
     aws_subnet.private-us-east-1a.id,
     aws_subnet.private-us-east-1b.id,

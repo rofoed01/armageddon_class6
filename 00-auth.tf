@@ -12,6 +12,13 @@ provider "aws" {
   region = "us-east-1"
 }
 
+data "aws_region" "seattle" {
+  provider = aws.seattle
+}
+data "aws_region" "virginia" {
+  provider = aws.virginia
+}
+
 terraform {
     required_providers {
         aws = {
@@ -19,7 +26,7 @@ terraform {
             version = ">= 3.0"
 
             # version in use at time of build = 5.80.0. use [version = "~> 3.0"] for a known good configuration
-            configuration_aliases = [ aws.provider.Seattle, aws.provider.Virginia ]
+           # configuration_aliases = [ aws.provider.Seattle, aws.provider.Virginia ]
             # unsure how to use the config aliases correctly. likely have to build modules
         }
     }

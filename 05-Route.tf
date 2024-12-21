@@ -17,6 +17,11 @@ resource "aws_route_table" "seattle_rtb_private" {
     #   vpc_endpoint_id            = ""
     #   vpc_peering_connection_id  = ""
     }
+
+    route {
+      cidr_block                 = "10.0.0.0/8"
+      transit_gateway_id         = aws_ec2_transit_gateway.seattle_tgw.id
+    }
   
 
   tags = {
@@ -107,6 +112,11 @@ resource "aws_route_table" "virginia_rtb_private" {
     #   transit_gateway_id         = ""
     #   vpc_endpoint_id            = ""
     #   vpc_peering_connection_id  = ""
+    }
+
+    route {
+      cidr_block                 = "10.0.0.0/8"
+      transit_gateway_id         = aws_ec2_transit_gateway.virginia_tgw.id
     }
 
   tags = {
